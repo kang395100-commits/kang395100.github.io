@@ -375,3 +375,98 @@ a.tile:hover::after,a.tile:focus-visible::after{background-color:#fff;background
 
 /* Ver 0.7: wider intro lines on desktop */
 .sec .intro{max-width:62em}
+
+/* =====================================================================
+   Ver 0.8 — design C "field photo": warm ground, photo heroes,
+   rounded cards, pill buttons. Overrides the rules above.
+   ===================================================================== */
+:root{
+  --paper:#f4f1ec; --ink:#1b2a33; --ink-2:#4a5660; --line:#e2ddd4;
+  --font:"Noto Sans KR","Noto Sans SC",sans-serif;
+  --r:14px;
+}
+body{background:var(--paper)}
+/* header: dark bar on every page */
+.hd{background:#1b2a33;border-bottom:0;backdrop-filter:none}
+.brand{color:#fff}.brand span{color:#b9c6cd}
+.nav a{color:#e6ecef}
+.nav a:hover{background:rgba(255,255,255,.08);color:#fff}
+.nav a[aria-current="page"]{color:#fff;font-weight:700;box-shadow:inset 0 -3px 0 #f2b45a}
+.lang{background:transparent;border-color:rgba(255,255,255,.35)}
+.lang a{color:#d6dee2}
+.lang a[aria-current="true"]{background:#fff;color:#1b2a33}
+.menu-btn{background:transparent;border-color:rgba(255,255,255,.35);color:#fff}
+@media (max-width:960px){
+  .nav a{color:#e6ecef;border-bottom-color:rgba(255,255,255,.12)}
+  .nav a[aria-current="page"]{box-shadow:inset 4px 0 0 #f2b45a}
+}
+/* home hero: full-bleed site photo */
+.hero{background:#1b2a33 linear-gradient(90deg,rgba(14,24,30,.9) 0%,rgba(14,24,30,.6) 55%,rgba(14,24,30,.2) 100%),url(../img/plant-aerial.jpg) center/cover no-repeat;background-blend-mode:normal}
+.hero{background-image:linear-gradient(90deg,rgba(14,24,30,.9) 0%,rgba(14,24,30,.6) 55%,rgba(14,24,30,.2) 100%),url(../img/plant-aerial.jpg)}
+.hero .wrap{display:block;min-height:560px;padding-top:120px;padding-bottom:140px;box-sizing:border-box}
+.hero .eyebrow{margin:0 0 16px;font-size:15px;font-weight:700;color:#f2b45a}
+.hero h1{font-size:clamp(32px,4.2vw,54px);font-weight:900;max-width:13em;line-height:1.2}
+.hero p.lead{color:#e6ecef;max-width:36em;margin:0}
+/* floating summary card */
+.mixcard{position:relative;margin-top:-72px;margin-bottom:8px}
+.mixcard .card{background:#fff;border-radius:16px;box-shadow:0 12px 40px rgba(14,24,30,.14);padding:32px;display:flex;flex-wrap:wrap;gap:24px 48px;align-items:center}
+.mixcard .lead2{flex:1 1 300px;min-width:0}
+.mixcard .lead2 b{font-size:22px}
+.mixcard .lead2 p{margin:8px 0 0;color:var(--ink-2)}
+.mixcard .nums{flex:2 1 520px;min-width:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.mixcard .num{border-left:4px solid var(--meso);padding-left:14px}
+.mixcard .num:nth-child(2){border-left-color:#6c7b84}
+.mixcard .num:nth-child(3){border-left-color:#e0921f}
+.mixcard .num strong{display:block;font-size:30px;font-weight:900;line-height:1.2}
+.mixcard .num span{font-size:14px;color:var(--ink-2)}
+/* field photo cards */
+.field{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.field figure{margin:0;background:#fff;border-radius:var(--r);overflow:hidden}
+.field img{width:100%;height:240px;object-fit:cover}
+.field figcaption{padding:20px}
+.field figcaption b{font-size:18px;display:block}
+.field figcaption span{display:block;margin-top:6px;font-size:15px;color:var(--ink-2)}
+/* page heads with photos */
+.ph{background:#1b2a33 center/cover no-repeat;background-image:linear-gradient(90deg,rgba(14,24,30,.9),rgba(14,24,30,.55)),var(--ph-img,none);padding:88px 0 72px}
+.ph-company{--ph-img:url(../img/plant-gate.jpg)}
+.ph-products{--ph-img:url(../img/plant-canopy.jpg)}
+.ph-technology{--ph-img:url(../img/lab.jpg)}
+.ph-business{--ph-img:url(../img/plant-aerial.jpg)}
+.ph h1{font-weight:900}
+/* sections and cards */
+.sec + .sec{border-top:0}
+.sec.alt{background:#fff}
+.sec.alt .prod,.sec.alt .model,.sec.alt .tw,.sec.alt .faq details,.sec.alt a.tile,.sec.alt .docs figure,.sec.alt .cmp-row,.sec.alt .steps li{background:#faf8f5}
+.prod,.model,.tile,.tw,.cmp-row,.steps li,.faq details,.docs figure{border-radius:var(--r);border-color:var(--line)}
+.prod{border-top-width:6px}
+.btn{border-radius:999px}
+.btn-pri{background:#0b6a86;color:#fff}.btn-pri:hover{background:#08546b;color:#fff}
+.btn-ghost{border-color:rgba(255,255,255,.6)}
+.contact{background:#1b2a33}
+.contact .btn-pri{background:#f2b45a;color:#1b2a33}.contact .btn-pri:hover{background:#f6c57a;color:#1b2a33}
+.ft{background:#121d23}
+.facts{border-top-color:#1b2a33}
+h1,h2{font-weight:900}
+@media (max-width:960px){
+  .field{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero .wrap{min-height:0;padding-top:72px;padding-bottom:120px}
+}
+@media (max-width:700px){
+  .field{grid-template-columns:minmax(0,1fr)}
+  .field img{height:200px}
+  .mixcard{margin-top:-56px}
+  .mixcard .card{padding:22px 20px}
+  .mixcard .nums{grid-template-columns:minmax(0,1fr);gap:12px}
+  .ph{padding:56px 0 48px}
+}
+/* Ver 0.8 fixes: one-row header up to 480px; let table headers wrap */
+@media (max-width:480px){
+  .hd .wrap{gap:8px;padding-left:14px;padding-right:14px}
+  .brand{flex:1 1 auto;min-width:0}
+  .brand b{font-size:14px;line-height:1.25;max-width:150px}
+  .brand span{display:none}
+  .lang{padding:2px}
+  .lang a{min-width:34px;min-height:38px;line-height:38px;padding:0 6px;font-size:13.5px}
+}
+thead th,tbody th{white-space:normal}
+td.num{white-space:nowrap}
