@@ -357,3 +357,18 @@ html[lang="en"] body{word-break:normal}
   table.kv th,table.kv td{display:block;border:0;padding:0}
   table.kv td{margin-top:2px}
 }
+
+/* ---------- Ver 0.6: documents are view-only; link tiles look like buttons ---------- */
+.docs figure{margin:0;height:100%;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:10px}
+.docs img{object-fit:contain;object-position:center;background:#fff}
+.docs figcaption span{display:block;font-size:14px;line-height:1.5;margin-top:10px}
+
+a.tile{position:relative;padding-right:72px;border:1.5px solid #9cc3cf;background:var(--white);transition:background-color .15s,border-color .15s,color .15s}
+a.tile::after{content:"";position:absolute;right:20px;top:50%;width:36px;height:36px;margin-top:-18px;border-radius:50%;
+  background:var(--meso) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/18px no-repeat;
+  transition:transform .15s}
+a.tile b{color:var(--meso)}
+a.tile:hover,a.tile:focus-visible{background:var(--meso);border-color:var(--meso);color:#fff}
+a.tile:hover b,a.tile:focus-visible b,a.tile:hover span,a.tile:focus-visible span{color:#fff}
+a.tile:hover::after,a.tile:focus-visible::after{background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b6a86' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");transform:translateX(3px)}
+@media (prefers-reduced-motion:reduce){a.tile,a.tile::after{transition:none}}
